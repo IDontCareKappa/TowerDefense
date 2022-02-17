@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     {
         if (waypointIndex == Waypoints.waypoints.Length - 1)
         {
-            Destroy(gameObject);
+            EndOfThePath();
             return;
         }
 
@@ -39,4 +39,9 @@ public class Enemy : MonoBehaviour
         target = Waypoints.waypoints[waypointIndex];
     }
 
+    void EndOfThePath()
+    {
+        Destroy(gameObject);
+        PlayerStats.Lives--;
+    }
 }
